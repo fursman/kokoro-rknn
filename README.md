@@ -320,7 +320,9 @@ instead of four, is the floor: LSD 0.68–1.36 dB, waveform SNR 24–32 dB.
 ## Credits and licence
 
 - **[Kokoro](https://github.com/hexgrad/kokoro)** and the Kokoro-82M weights, by hexgrad:
-  Apache-2.0. This project runs the model unchanged apart from the graph rewrites above.
+  Apache-2.0. This project runs the model unchanged apart from the graph rewrites above. The
+  findings that don't depend on the NPU (1, 2 and 4 above) are written up in
+  [hexgrad/kokoro#390](https://github.com/hexgrad/kokoro/issues/390).
 - **[kokoro-server](https://github.com/marty1885/kokoro-server)** by marty1885: the first
   Kokoro decoder on the RK3588 NPU, and where this started. Its `build.py` and notes showed
   that GlobalAveragePool keeps the normalisation on the NPU, that Snake's 1/α folds into the
@@ -331,7 +333,8 @@ instead of four, is the floor: LSD 0.68–1.36 dB, waveform SNR 24–32 dB.
   treat what we adapted as carrying Kokoro's Apache-2.0 terms, and say so in [NOTICE](NOTICE).
   Everything else here is our own code.
 - **[kokoro-onnx](https://github.com/thewh1teagle/kokoro-onnx)** by thewh1teagle (MIT): the
-  ONNX export we cut from, and the `Kokoro` class the engine extends.
+  ONNX export we cut from, and the `Kokoro` class the engine extends. The v1.0 export's level
+  is noted in [thewh1teagle/kokoro-onnx#210](https://github.com/thewh1teagle/kokoro-onnx/issues/210).
 - **[rknn-toolkit2](https://github.com/airockchip/rknn-toolkit2)** and librknnrt: Rockchip.
 
 This repository is licensed under the [Apache License 2.0](LICENSE); see [NOTICE](NOTICE).
