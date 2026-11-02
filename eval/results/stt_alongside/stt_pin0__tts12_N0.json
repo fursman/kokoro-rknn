@@ -1,0 +1,130 @@
+{
+ "summary": {
+  "stt": "board:8782",
+  "tts": "board:8786",
+  "tts_conc": 0,
+  "stream_final_ms_med": 1,
+  "stream_final_ms_p90": 1,
+  "stream_final_ms_max": 1,
+  "clip_rtf_med": 0.389,
+  "clip_rtf_max": 0.393,
+  "clip_ms_med": 2360,
+  "wer_mean": 0.0597,
+  "tts_requests": 0,
+  "tts_errors": 0,
+  "tts_throughput": 0,
+  "tts_first_med": null,
+  "wall_s": 46.5
+ },
+ "records": [
+  {
+   "mode": "stream",
+   "utt": "sure",
+   "final_ms": 1.1174819665029645,
+   "partials": 15,
+   "text": "Sure, I can help with that. Let me check the forecast and get back to you in just a moment",
+   "wer": 0.0,
+   "seconds": 6.075
+  },
+  {
+   "mode": "clip",
+   "utt": "sure",
+   "latency_ms": 2360.471014981158,
+   "rtf": 0.3885548995853758,
+   "text": "Sure, I can help with that. Let me check the forecast and get back to you in just a moment",
+   "wer": 0.0,
+   "seconds": 6.075
+  },
+  {
+   "mode": "stream",
+   "utt": "timer",
+   "final_ms": 0.9185969829559326,
+   "partials": 8,
+   "text": "Do you want me to set a timer for 25 minutes?",
+   "wer": 0.16666666666666666,
+   "seconds": 3.775
+  },
+  {
+   "mode": "clip",
+   "utt": "timer",
+   "latency_ms": 1338.0359659786336,
+   "rtf": 0.3544466135042738,
+   "text": "Do you want me to set a timer for 25 minutes?",
+   "wer": 0.16666666666666666,
+   "seconds": 3.775
+  },
+  {
+   "mode": "stream",
+   "utt": "library",
+   "final_ms": 0.8027209551073611,
+   "partials": 18,
+   "text": "The library opens at 9 tomorrow morning. And the book you reserved should be waiting for you at the front desk.",
+   "wer": 0.047619047619047616,
+   "seconds": 7.2
+  },
+  {
+   "mode": "clip",
+   "utt": "library",
+   "latency_ms": 2825.4870180389844,
+   "rtf": 0.3924287525054145,
+   "text": "The library opens at 9:00 tomorrow morning. And the book you reserved should be waiting for you at the front desk.",
+   "wer": 0.09523809523809523,
+   "seconds": 7.2
+  },
+  {
+   "mode": "stream",
+   "utt": "short",
+   "final_ms": 0.724253011867404,
+   "partials": 5,
+   "text": "Sure, I can help with that.",
+   "wer": 0.0,
+   "seconds": 2.6
+  },
+  {
+   "mode": "clip",
+   "utt": "short",
+   "latency_ms": 963.9983440283686,
+   "rtf": 0.37076859385706484,
+   "text": "Sure, I can help with that.",
+   "wer": 0.0,
+   "seconds": 2.6
+  },
+  {
+   "mode": "stream",
+   "utt": "ferry",
+   "final_ms": 0.8075500372797251,
+   "partials": 20,
+   "text": "if you leave now take the ferry from Fulford Harbor otherwise the next sailing is at 4 30 and it is usually busy on Fridays",
+   "wer": 0.12,
+   "seconds": 9.45
+  },
+  {
+   "mode": "clip",
+   "utt": "ferry",
+   "latency_ms": 3709.8980179871432,
+   "rtf": 0.3925818008452004,
+   "text": "if you leave now take the ferry from Fulford Harbor otherwise the next sailing is at 4 30 and it is usually busy on Fridays",
+   "wer": 0.12,
+   "seconds": 9.45
+  },
+  {
+   "mode": "stream",
+   "utt": "medium",
+   "final_ms": 0.741436961106956,
+   "partials": 9,
+   "text": "Let me check the forecast and get back to you in just a moment",
+   "wer": 0.0,
+   "seconds": 4.45
+  },
+  {
+   "mode": "clip",
+   "utt": "medium",
+   "latency_ms": 1536.5763470181264,
+   "rtf": 0.34529805550969134,
+   "text": "Let me check the forecast and get back to you in just a moment",
+   "wer": 0.0,
+   "seconds": 4.45
+  }
+ ],
+ "tts": []
+}

@@ -1,0 +1,10 @@
+.venv/
+models/
+eval/out/
+__pycache__/
+*.onnx
+*.rknn
+*.npy
+*.npz
+*.so
+*.wav

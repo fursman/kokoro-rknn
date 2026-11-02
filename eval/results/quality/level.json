@@ -1,0 +1,47 @@
+{
+ "short": {
+  "ref (kokoro-onnx, whole)": -22.464441427668454,
+  "orig NPU pipeline (misaki)": -28.39890356057541,
+  "orig NPU pipeline (espeak)": -28.230344017225523,
+  "fp32 kokoro-src dec + src har + numpy iSTFT": -25.969503461665642,
+  "fp32 kokoro-src dec + src har + ref iSTFT": -22.4492930839114,
+  "fp32 kokoro-src dec + ref har + ref iSTFT": -22.54037900914692,
+  "fp32 ref dec (windowed) + ref har": -22.540379663710784
+ },
+ "medium": {
+  "ref (kokoro-onnx, whole)": -22.178170847861086,
+  "orig NPU pipeline (misaki)": -25.80520848071742,
+  "orig NPU pipeline (espeak)": -25.93397919705753,
+  "fp32 kokoro-src dec + src har + numpy iSTFT": -26.497794006779223,
+  "fp32 kokoro-src dec + src har + ref iSTFT": -22.972375767634905,
+  "fp32 kokoro-src dec + ref har + ref iSTFT": -22.96390770045711,
+  "fp32 ref dec (windowed) + ref har": -22.963908385115804
+ },
+ "timer": {
+  "ref (kokoro-onnx, whole)": -22.137989814693302,
+  "orig NPU pipeline (misaki)": -26.66304973799968,
+  "orig NPU pipeline (espeak)": -26.56442324951468,
+  "fp32 kokoro-src dec + src har + numpy iSTFT": -25.553470228104313,
+  "fp32 kokoro-src dec + src har + ref iSTFT": -22.024997417723796,
+  "fp32 kokoro-src dec + ref har + ref iSTFT": -22.063889354106625,
+  "fp32 ref dec (windowed) + ref har": -22.063890252275627
+ },
+ "sure": {
+  "ref (kokoro-onnx, whole)": -22.295459266158637,
+  "orig NPU pipeline (misaki)": -26.607270950275044,
+  "orig NPU pipeline (espeak)": -26.425977725015784,
+  "fp32 kokoro-src dec + src har + numpy iSTFT": -25.950523519731238,
+  "fp32 kokoro-src dec + src har + ref iSTFT": -22.4357463958192,
+  "fp32 kokoro-src dec + ref har + ref iSTFT": -22.53445070444468,
+  "fp32 ref dec (windowed) + ref har": -22.53445153728765
+ },
+ "library": {
+  "ref (kokoro-onnx, whole)": -22.534666955294025,
+  "orig NPU pipeline (misaki)": -27.018269648730804,
+  "orig NPU pipeline (espeak)": -27.00673672117455,
+  "fp32 kokoro-src dec + src har + numpy iSTFT": -26.459130346641132,
+  "fp32 kokoro-src dec + src har + ref iSTFT": -22.915342885765757,
+  "fp32 kokoro-src dec + ref har + ref iSTFT": -23.07571987177636,
+  "fp32 ref dec (windowed) + ref har": -23.075720803930025
+ }
+}

@@ -1,0 +1,239 @@
+{
+ "summary": {
+  "stt": "board:8782",
+  "tts": "board:8786",
+  "tts_conc": 2,
+  "stream_final_ms_med": 1,
+  "stream_final_ms_p90": 662,
+  "stream_final_ms_max": 662,
+  "clip_rtf_med": 0.619,
+  "clip_rtf_max": 0.718,
+  "clip_ms_med": 3197,
+  "wer_mean": 0.0557,
+  "tts_requests": 18,
+  "tts_errors": 0,
+  "tts_throughput": 3.048,
+  "tts_first_med": 3.837,
+  "wall_s": 54.5
+ },
+ "records": [
+  {
+   "mode": "stream",
+   "utt": "sure",
+   "final_ms": 0.924385036341846,
+   "partials": 14,
+   "text": "Sure, I can help with that. Let me check the forecast and get back to you in just a moment",
+   "wer": 0.0,
+   "seconds": 6.075
+  },
+  {
+   "mode": "clip",
+   "utt": "sure",
+   "latency_ms": 3115.9780180314556,
+   "rtf": 0.5129181922685524,
+   "text": "Sure, I can help with that. Let me check the forecast and get back to you in just a moment",
+   "wer": 0.0,
+   "seconds": 6.075
+  },
+  {
+   "mode": "stream",
+   "utt": "timer",
+   "final_ms": 1.0940650245174766,
+   "partials": 6,
+   "text": "Do you want me to set a timer for 25 minutes?",
+   "wer": 0.16666666666666666,
+   "seconds": 3.775
+  },
+  {
+   "mode": "clip",
+   "utt": "timer",
+   "latency_ms": 1614.4858000334352,
+   "rtf": 0.42767835762475104,
+   "text": "Do you want me to set a timer for 25 minutes?",
+   "wer": 0.16666666666666666,
+   "seconds": 3.775
+  },
+  {
+   "mode": "stream",
+   "utt": "library",
+   "final_ms": 54.06208598287776,
+   "partials": 18,
+   "text": "The library opens at 9 tomorrow morning. And the book you reserved should be waiting for you at the front desk.",
+   "wer": 0.047619047619047616,
+   "seconds": 7.2
+  },
+  {
+   "mode": "clip",
+   "utt": "library",
+   "latency_ms": 4457.786162965931,
+   "rtf": 0.6191369670786016,
+   "text": "The library opens at 9 tomorrow morning And the book you reserved should be waiting for you at the front desk.",
+   "wer": 0.047619047619047616,
+   "seconds": 7.2
+  },
+  {
+   "mode": "stream",
+   "utt": "short",
+   "final_ms": 661.9447150151245,
+   "partials": 5,
+   "text": "Sure, I can help with that.",
+   "wer": 0.0,
+   "seconds": 2.6
+  },
+  {
+   "mode": "clip",
+   "utt": "short",
+   "latency_ms": 1502.3089030291885,
+   "rtf": 0.5778111165496879,
+   "text": "Sure, I can help with that.",
+   "wer": 0.0,
+   "seconds": 2.6
+  },
+  {
+   "mode": "stream",
+   "utt": "ferry",
+   "final_ms": 1.0470609995536506,
+   "partials": 18,
+   "text": "if you leave now take the ferry from Fulford Harbor otherwise the next sailing is at 4 30 and it is usually busy on Fridays",
+   "wer": 0.12,
+   "seconds": 9.45
+  },
+  {
+   "mode": "clip",
+   "utt": "ferry",
+   "latency_ms": 6190.812299028039,
+   "rtf": 0.6551124125955597,
+   "text": "if you leave now take the ferry from Fulford Harbor otherwise the next sailing is at 4 30 and it is usually busy on Fridays",
+   "wer": 0.12,
+   "seconds": 9.45
+  },
+  {
+   "mode": "stream",
+   "utt": "medium",
+   "final_ms": 0.905329012311995,
+   "partials": 8,
+   "text": "Let me check the forecast and get back to you in just a moment",
+   "wer": 0.0,
+   "seconds": 4.45
+  },
+  {
+   "mode": "clip",
+   "utt": "medium",
+   "latency_ms": 3196.913625986781,
+   "rtf": 0.7184075564015238,
+   "text": "Let me check the forecast and get back to you in just a moment",
+   "wer": 0.0,
+   "seconds": 4.45
+  }
+ ],
+ "tts": [
+  {
+   "first": 3.2118772760150023,
+   "total": 3.2170055719907396,
+   "audio": 4.970666666666666,
+   "t": 493138.848983148
+  },
+  {
+   "first": 3.1571198090096004,
+   "total": 5.8145922110415995,
+   "audio": 8.917333333333334,
+   "t": 493138.848088601
+  },
+  {
+   "first": 3.410052932042163,
+   "total": 3.4151474100071937,
+   "audio": 4.970666666666666,
+   "t": 493144.662727682
+  },
+  {
+   "first": 3.9649782750057057,
+   "total": 9.98434093000833,
+   "audio": 13.802666666666667,
+   "t": 493142.066105506
+  },
+  {
+   "first": 4.151129669975489,
+   "total": 9.65885911101941,
+   "audio": 13.802666666666667,
+   "t": 493148.077930207
+  },
+  {
+   "first": 3.836578241956886,
+   "total": 6.536397691001184,
+   "audio": 8.917333333333334,
+   "t": 493152.050515216
+  },
+  {
+   "first": 3.364166204002686,
+   "total": 3.3714389709639363,
+   "audio": 4.970666666666666,
+   "t": 493158.58699495
+  },
+  {
+   "first": 3.718210242979694,
+   "total": 6.353968441020697,
+   "audio": 8.917333333333334,
+   "t": 493157.736863077
+  },
+  {
+   "first": 3.361160732980352,
+   "total": 3.3659297010162845,
+   "audio": 4.970666666666666,
+   "t": 493164.090913796
+  },
+  {
+   "first": 4.621760487032589,
+   "total": 10.12002356001176,
+   "audio": 13.802666666666667,
+   "t": 493161.958536511
+  },
+  {
+   "first": 3.4376895390450954,
+   "total": 6.073758343991358,
+   "audio": 8.917333333333334,
+   "t": 493172.078657873
+  },
+  {
+   "first": 4.601551613013726,
+   "total": 10.775007414980792,
+   "audio": 13.802666666666667,
+   "t": 493167.456920786
+  },
+  {
+   "first": 4.036104216007516,
+   "total": 4.050093669036869,
+   "audio": 4.970666666666666,
+   "t": 493178.1525147
+  },
+  {
+   "first": 3.5463300080155022,
+   "total": 6.215109632990789,
+   "audio": 8.917333333333334,
+   "t": 493178.231992884
+  },
+  {
+   "first": 4.078359675011598,
+   "total": 4.083572636009194,
+   "audio": 4.970666666666666,
+   "t": 493184.447207543
+  },
+  {
+   "first": 4.196522555954289,
+   "total": 10.065255376975983,
+   "audio": 13.802666666666667,
+   "t": 493182.202691298
+  },
+  {
+   "first": 3.370371432043612,
+   "total": 6.0225249220384285,
+   "audio": 8.917333333333334,
+   "t": 493192.268009665
+  },
+  {
+   "first": 4.091955254029017,
+   "total": 9.974417862016708,
+   "audio": 13.802666666666667,
+   "t": 493188.530856099
+  }
+ ]
+}

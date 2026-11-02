@@ -1,0 +1,5 @@
+# On the board (Python 3.10-3.12 tested with 3.12). Plus librknnrt.so 2.5.0 in /usr/lib.
+kokoro-onnx==0.6.1
+onnxruntime>=1.20
+numpy
+aiohttp

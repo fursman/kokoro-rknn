@@ -1,0 +1,21 @@
+kokoro-rknn
+Copyright 2026 Andrew Fursman
+
+This project runs Kokoro-82M by hexgrad (https://github.com/hexgrad/kokoro,
+https://huggingface.co/hexgrad/Kokoro-82M), licensed under the Apache License 2.0.
+No model weights are included here: build/ downloads kokoro-onnx's ONNX export of
+Kokoro-82M and cuts and rewrites it into the graphs this project runs.
+
+Parts of build/surgery.py are adapted from build.py in kokoro-server by marty1885
+(https://github.com/marty1885/kokoro-server): the rewrite of the stride-10
+ConvTranspose as zero-interleave plus a stride-1 convolution, and the clipped
+polynomial Sin (kept only to reproduce kokoro-server's NPU build in the
+evaluation). Its notes also showed that GlobalAveragePool keeps the normalisation
+on the NPU and that Snake's 1/alpha can be folded into the next convolution. These
+parts were modified for this project. kokoro-server had no license file when this
+was written; much of it derives from Kokoro, so we treat what we adapted from it
+as carrying Kokoro's Apache License 2.0 terms.
+
+At run time it uses kokoro-onnx by thewh1teagle (https://github.com/thewh1teagle/kokoro-onnx,
+MIT License), onnxruntime, and Rockchip's RKNN runtime (librknnrt); the NPU graphs
+are compiled with Rockchip's rknn-toolkit2 (https://github.com/airockchip/rknn-toolkit2).

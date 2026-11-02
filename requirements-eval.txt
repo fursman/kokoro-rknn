@@ -1,0 +1,5 @@
+# The evaluation scripts, on top of requirements.txt (eval_npu.py also needs rknn-toolkit-lite2 on the board).
+onnx>=1.16
+scipy
+pyloudnorm
+soundfile

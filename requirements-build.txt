@@ -1,0 +1,6 @@
+# Building the NPU graphs (x86-64 or aarch64 Linux, Python 3.8-3.12).
+# extract.py and surgery.py need only onnx and numpy; compile_rknn.py needs rknn-toolkit2,
+# which pins its own numpy/onnx/torch: give it a venv of its own.
+onnx>=1.16
+numpy
+# rknn-toolkit2==2.3.2     (pip install it in a separate venv; see README)

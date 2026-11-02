@@ -1,0 +1,170 @@
+{
+ "1": {
+  "requests": 6,
+  "errors": 0,
+  "wall_s": 62.96,
+  "audio_s": 55.38,
+  "throughput_audio_s_per_s": 0.88,
+  "per_text": {
+   "salt": {
+    "n": 2,
+    "audio_s": 8.92,
+    "first_med": 5.773,
+    "first_max": 6.074,
+    "total_med": 9.801,
+    "total_max": 10.062,
+    "rtf_med": 1.099
+   },
+   "sure": {
+    "n": 2,
+    "audio_s": 4.97,
+    "first_med": 5.757,
+    "first_max": 6.18,
+    "total_med": 5.762,
+    "total_max": 6.185,
+    "rtf_med": 1.159
+   },
+   "long": {
+    "n": 2,
+    "audio_s": 13.8,
+    "first_med": 6.636,
+    "first_max": 7.132,
+    "total_med": 15.915,
+    "total_max": 17.199,
+    "rtf_med": 1.153
+   }
+  },
+  "cpu_pct_per_core": {
+   "0": 27.9,
+   "1": 38.6,
+   "2": 11.4,
+   "3": 1.0,
+   "4": 0.6,
+   "5": 0.0,
+   "6": 0.0,
+   "7": 0.0
+  },
+  "npu_load_mean": [
+   21.3,
+   15.3,
+   16.0
+  ],
+  "proc_cores": {
+   "tts": 0.754,
+   "stt": 0.0
+  },
+  "sampler_s": 64.62
+ },
+ "2": {
+  "requests": 12,
+  "errors": 0,
+  "wall_s": 58.95,
+  "audio_s": 110.76,
+  "throughput_audio_s_per_s": 1.879,
+  "per_text": {
+   "sure": {
+    "n": 4,
+    "audio_s": 4.97,
+    "first_med": 5.35,
+    "first_max": 5.41,
+    "total_med": 5.355,
+    "total_max": 5.414,
+    "rtf_med": 1.077
+   },
+   "salt": {
+    "n": 4,
+    "audio_s": 8.92,
+    "first_med": 5.249,
+    "first_max": 5.307,
+    "total_med": 9.385,
+    "total_max": 9.776,
+    "rtf_med": 1.052
+   },
+   "long": {
+    "n": 4,
+    "audio_s": 13.8,
+    "first_med": 6.135,
+    "first_max": 6.28,
+    "total_med": 14.676,
+    "total_max": 14.975,
+    "rtf_med": 1.063
+   }
+  },
+  "cpu_pct_per_core": {
+   "0": 46.4,
+   "1": 38.0,
+   "2": 41.8,
+   "3": 35.0,
+   "4": 0.1,
+   "5": 0.5,
+   "6": 0.0,
+   "7": 0.0
+  },
+  "npu_load_mean": [
+   37.1,
+   31.7,
+   29.9
+  ],
+  "proc_cores": {
+   "tts": 1.596,
+   "stt": 0.0
+  },
+  "sampler_s": 60.46
+ },
+ "3": {
+  "requests": 18,
+  "errors": 0,
+  "wall_s": 61.74,
+  "audio_s": 166.14,
+  "throughput_audio_s_per_s": 2.691,
+  "per_text": {
+   "sure": {
+    "n": 6,
+    "audio_s": 4.97,
+    "first_med": 5.081,
+    "first_max": 6.495,
+    "total_med": 5.086,
+    "total_max": 6.5,
+    "rtf_med": 1.023
+   },
+   "salt": {
+    "n": 6,
+    "audio_s": 8.92,
+    "first_med": 5.541,
+    "first_max": 6.761,
+    "total_med": 9.561,
+    "total_max": 10.963,
+    "rtf_med": 1.072
+   },
+   "long": {
+    "n": 6,
+    "audio_s": 13.8,
+    "first_med": 6.671,
+    "first_max": 7.839,
+    "total_med": 15.213,
+    "total_max": 16.444,
+    "rtf_med": 1.102
+   }
+  },
+  "cpu_pct_per_core": {
+   "0": 61.5,
+   "1": 54.7,
+   "2": 53.4,
+   "3": 58.0,
+   "4": 0.2,
+   "5": 0.7,
+   "6": 0.0,
+   "7": 0.0
+  },
+  "npu_load_mean": [
+   45.1,
+   46.6,
+   46.6
+  ],
+  "proc_cores": {
+   "tts": 2.267,
+   "stt": 0.0
+  },
+  "sampler_s": 63.22
+ }
+}

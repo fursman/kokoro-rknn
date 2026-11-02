@@ -1,0 +1,20 @@
+# /etc/systemd/system/kokoro-rknn.service -- adjust User and paths.
+[Unit]
+Description=Kokoro-82M text-to-speech, decoder on the RK3588 NPU
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/opt/kokoro-rknn
+# Lanes on NPU cores 1, 2, then 0: core 0 (which a speech recogniser on NPU_CORE_AUTO then has
+# to itself) only takes a sentence when 1 and 2 are both busy. Six CPU workers let the next
+# sentences' front run while the NPU decodes.
+ExecStart=/opt/kokoro-rknn/.venv/bin/python -m kokoro_rknn.server --models /opt/kokoro-rknn/models --port 8771 --cores 1,2,0 --workers 6 --threads 4
+# The four Cortex-A76 cores (4-7 on the RK3588). On the A55s the CPU work becomes the bottleneck.
+CPUAffinity=4-7
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
