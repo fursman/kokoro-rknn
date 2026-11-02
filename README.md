@@ -154,10 +154,9 @@ In fp32 the padded, masked decode matches the unpadded one to 80 dB of waveform 
 any static-shape runtime, not just this NPU.
 
 **3. The 8191 width limit.** On the RK3588, an elementwise op that broadcasts over a time
-axis wider than 8191 overflows a 13-bit register field. rknn-toolkit2 prints
-`REGTASK: The bit width of field value exceeds the limit` while compiling, and **the
-compiled model hangs the NPU** (minutes of job timeouts and soft resets). The limit in the
-message is 0x1fff. The decoder's last
+axis wider than 8191 overflows a register field (the error's limit is 0x1fff). rknn-toolkit2
+prints `REGTASK: The bit width of field value exceeds the limit` while compiling, and **the
+compiled model hangs the NPU** (minutes of job timeouts and soft resets). The decoder's last
 stage runs at 120T+1 samples, i.e. 12,001 wide for 100 frames. The workarounds:
 - every elementwise op at that rate runs on a free `(1, C, H, W)` reshape of the tensor,
   with W ≤ 8160 a multiple of 32, and its masks are fed in already 4-D;
@@ -218,7 +217,7 @@ output is interleaved straight into graph B's input. The decoder's CPU work fell
 per sentence (rknnlite's conversions) to 12–17 ms. onnxruntime's threads don't spin while the NPU
 works, which saved another ~30% of the CPU. The audio is bit-identical to the rknnlite path.
 
-**librknnrt 2.5.0 quirks** found on the way, each of which cost a crash:
+**librknnrt 2.5.0 behaviour worth knowing** if you use the C API this way:
 1. `rknn_dup_context` segfaults if the source context was initialised from a file *path*: initialise from a buffer.
 2. Binding a context's I/O memory and then dup'ing it corrupts the source's bindings: create every context and dup first, then bind.
 3. With `RKNN_FLAG_INTERNAL_ALLOC_OUTSIDE`, native output attributes report size 0 until `rknn_set_internal_mem` has been called: query again after it.
@@ -260,13 +259,13 @@ T=64 B: 0 REGTASK errors; COMPILED models/buckets/dec_T64_B.rknn in 25 s
 
 Each graph took 20–40 s to compile on a desktop (small buckets) and 25–90 s on the board.
 The output is `models/buckets/dec_T*_{A,B}.rknn`, about 1.2 GB; the intermediate `.onnx` files
-take another ~1.6 GB and are not needed at run time. Copy `models/` to the board if you built elsewhere. On
-the board the toolkit also needed `opencv-python-headless`.
+take another ~1.6 GB and are not needed at run time. Copy `models/` to the board if you built
+elsewhere. On the board the toolkit also needed `opencv-python-headless`.
 
 **Never run a model whose compile log mentions `REGTASK ... exceeds the limit`**, even once:
-it hangs the NPU for minutes, and anything else on the NPU stalls too. `build_buckets.sh`
-counts those lines and deletes such a model. All the graphs built here have none; you would
-only see them after changing the surgery or adding buckets above 400 frames without the 4-D views.
+it hangs the NPU for minutes (job timeouts and soft resets in the kernel log). `build_buckets.sh`
+counts those lines and deletes such a model. The graphs built here have none; you would only
+see them after changing the surgery.
 
 Notes:
 - Toolkit 2.5.0 also compiles these graphs but took ~3× longer on the one we timed; we
@@ -305,8 +304,8 @@ instead of four, is the floor: LSD 0.68–1.36 dB, waveform SNR 24–32 dB.
 - **Built from kokoro-onnx's `model-files-v1.0` export** (January 2025). `build/extract.py`
   looks its tensors up by name; the re-export in `model-files-v1.1` is a different graph and
   isn't supported yet. That v1.0 export is 3.1–3.3 LU louder than PyTorch Kokoro: its iSTFT
-  skips the overlap-add normalisation (×1.5, [eval/istft_level.py](eval/istft_level.py)). This project reproduces it, so it matches
-  kokoro-onnx v1.0, not PyTorch, in level.
+  skips the overlap-add normalisation (×1.5, [eval/istft_level.py](eval/istft_level.py)). This
+  project reproduces it, so it matches kokoro-onnx v1.0, not PyTorch, in level.
 - **No streaming within a sentence.** First audio waits for the whole sentence. The real-time
   factor is ~0.5–0.6, so a 10 s sentence takes ~4 s to start; cut long replies into sentences
   in the client.
@@ -315,7 +314,7 @@ instead of four, is the floor: LSD 0.68–1.36 dB, waveform SNR 24–32 dB.
   same NPU and runtime and should work, but we haven't run them.
 - The listening test was informal: one listener, a handful of rounds.
 - RSS is ~4 GB, mostly six CPU workers' onnxruntime sessions plus the full model kept for the
-  CPU fallback; `--workers 3` uses less.
+  CPU fallback; fewer `--workers` use less.
 
 ## Credits and licence
 
@@ -323,14 +322,15 @@ instead of four, is the floor: LSD 0.68–1.36 dB, waveform SNR 24–32 dB.
   Apache-2.0. This project runs the model unchanged apart from the graph rewrites above. The
   findings that don't depend on the NPU (1, 2 and 4 above) are written up in
   [hexgrad/kokoro#390](https://github.com/hexgrad/kokoro/issues/390).
-- **[kokoro-server](https://github.com/marty1885/kokoro-server)** by marty1885: the first
-  Kokoro decoder on the RK3588 NPU, and where this started. Its `build.py` and notes showed
+- **[kokoro-server](https://github.com/marty1885/kokoro-server)** by marty1885: Kokoro's
+  decoder on the RK3588 NPU before this, and where this started. Its `build.py` and notes showed
   that GlobalAveragePool keeps the normalisation on the NPU, that Snake's 1/α folds into the
   next convolution, and how to replace the stride-10 ConvTranspose. Two parts of
   [build/surgery.py](build/surgery.py) are adapted from it and marked there: that ConvTranspose
   rewrite, and the clipped-polynomial Sin (only used to reproduce the earlier build in the
   evaluation). kokoro-server has no licence file; because much of it derives from Kokoro, we
-  treat what we adapted as carrying Kokoro's Apache-2.0 terms, and say so in [NOTICE](NOTICE).
+  treat what we adapted as carrying Kokoro's Apache-2.0 terms, and say so in [NOTICE](NOTICE)
+  (and have asked about a licence in [marty1885/kokoro-server#1](https://github.com/marty1885/kokoro-server/issues/1)).
   Everything else here is our own code.
 - **[kokoro-onnx](https://github.com/thewh1teagle/kokoro-onnx)** by thewh1teagle (MIT): the
   ONNX export we cut from, and the `Kokoro` class the engine extends. The v1.0 export's level
