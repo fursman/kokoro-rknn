@@ -291,6 +291,7 @@ python eval/eval_cpu.py               # windowed decoding emulated in fp32: what
 python eval/adain_stats.py            # windowed decoding with the whole sentence's statistics injected
 python eval/eval_npu.py               # on the board: the NPU decoder against the reference, with timings
 python eval/loadtest.py --servers board:8771 --conc 3 --reqs 6
+python eval/istft_level.py models/kokoro-v1.0.onnx --voices models/voices-v1.0.bin   # needs torch + kokoro
 ```
 
 The metrics ([eval/metrics.py](eval/metrics.py)) are log-spectral distance (LSD), STFT-magnitude
@@ -303,8 +304,8 @@ instead of four, is the floor: LSD 0.68–1.36 dB, waveform SNR 24–32 dB.
 
 - **Built from kokoro-onnx's `model-files-v1.0` export** (January 2025). `build/extract.py`
   looks its tensors up by name; the re-export in `model-files-v1.1` is a different graph and
-  isn't supported yet. That v1.0 export is ~3.5 dB louder than PyTorch Kokoro: its iSTFT
-  skips the overlap-add normalisation (×1.5). This project reproduces it, so it matches
+  isn't supported yet. That v1.0 export is 3.1–3.3 LU louder than PyTorch Kokoro: its iSTFT
+  skips the overlap-add normalisation (×1.5, [eval/istft_level.py](eval/istft_level.py)). This project reproduces it, so it matches
   kokoro-onnx v1.0, not PyTorch, in level.
 - **No streaming within a sentence.** First audio waits for the whole sentence. The real-time
   factor is ~0.5–0.6, so a 10 s sentence takes ~4 s to start; cut long replies into sentences

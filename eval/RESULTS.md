@@ -131,7 +131,18 @@ constant in the graph, so it only applies to the first output samples, and the 1
 Hann window at 75% overlap is never divided out. End to end, PyTorch Kokoro (hexgrad/kokoro
 0.9.4, `KModel`) with the same tokens and voice is 3.1–3.3 LU quieter than that export.
 kokoro-onnx's newer re-export (`model-files-v1.1`) matches PyTorch to within 0.1 LU. This
-repository is cut from the v1.0 export and reproduces its level.
+repository is cut from the v1.0 export and reproduces its level. Script: [istft_level.py](istft_level.py)
+(run with kokoro 0.9.4, kokoro-onnx 0.6.1, torch 2.15 CPU):
+
+| sentence | v1.0 export − KModel | v1.1 export − KModel |
+|---|---|---|
+| salt | +3.14 LU | −0.07 LU |
+| sure | +3.29 LU | +0.07 LU |
+| short | +3.22 LU | −0.07 LU |
+| timer | +3.20 LU | −0.09 LU |
+
+iSTFT alone, v1.0 export against `torch.istft` on KModel's own spectrum: gain 1.499999
+(+3.52 dB), residual after that gain −122 dB.
 
 ## Why windowed decoding can't match: the AdaIN statistics
 
